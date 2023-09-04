@@ -1,0 +1,48 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+
+spring:
+ freemarker:
+  suffix: .ftl
+  cache: false
+ devtools:
+    restart:
+     enabled: true
+    add-properties: false
+ servlet:
+  multipart:
+   enabled: true
+   file-size-threshold: 0
+   max-file-size: 3000MB
+   max-request-size: 10GB
+ jpa:
+   open-in-view: false
+   properties:
+    hibernate:
+     hbm2ddl:
+      auto: update
+     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+ aop:
+  proxy-target-class: true
+ resources:
+   static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/static/ueditorUpload/,classpath:/public/
+ http:
+   multipart:
+     maxFileSize: 3000MB
+     maxRequestSize: 10000MB
+logging:
+  level:
+     root: info
+     web: debug
+
+    
+system:
+ name: 审协河南中心学术研究共享平台
+ version: 1.0.alpha
+ 
+upload:
+ pic: jpg,jpeg,png

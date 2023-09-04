@@ -21,10 +21,11 @@ public class UEditorController {
         return "index";
     }
 
-    @RequestMapping(value="/config")
+    @RequestMapping("/config")
     public void config(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
-        String rootPath = request.getSession().getServletContext().getRealPath("/");
+        //String rootPath = request.getSession().getServletContext().getRealPath("/");
+        String rootPath=this.getClass().getResource("/").getPath()+"static/ueditorUpload";
         try {
             String exec = new ActionEnter(request, rootPath).exec();
             PrintWriter writer = response.getWriter();
